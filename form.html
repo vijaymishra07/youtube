@@ -1,155 +1,141 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>helping coder</title>
-  <style>
-     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
-*{
+	<title></title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+	<style>
+		 body{
+    background: url('img4.png');
     margin: 0;
-    padding: 0;
-    font-family: 'poppins',sans-serif;
-}
-section{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    width: 100%;
-    background-image: url('night.jpg');
     background-size: cover;
-}
-.form-box{
-    position: relative;
-    width: 400px;
-    height: 450px;
+    background-repeat: no-repeat; 
+  }
+  .logpad{
+    max-width: 250px;
+    height: 350px;
     background: transparent;
     border: 2px solid rgba(255,255,255,0.5);
-    border-radius: 20px;
-    backdrop-filter: blur(19px);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-}
-h2{
-    font-size: 2em;
-    color: #fff;
+    backdrop-filter: blur(7px);
+    margin: auto;
+    padding: 50px;
+    margin-top: 100px;
     text-align: center;
-}
-.inputbox{
-    position: relative;
-    margin: 30px 0;
-    width: 310px;
-    border-bottom: 2px solid #fff;
-}
-.inputbox label{
-    position: absolute;
-    top: 50%;
-    left: 5px;
-    transform: translateY(-50%);
-    color: #fff;
-    font-size: 1em;
-    pointer-events: none;
+    border-radius: 3px 25px;
+  }
+  .logpad span:first-child{
+    font-family: Valeyola;
+    color: #1ceeb6;
+    font-size: 44px;
+  }
+  .logpad span:last-child{
+    font-family: Gabriola;
+    color: #1ceeb6;
+    font-size: 44px;
+  }
+  .logpad input{
+    border: none;
+    outline: none;
+    background: none;
+    border-bottom: 2px solid #fffdfc;
+    width: 100%;
+    padding: 10px 0;
+    color: #ffffff;
+    font-family: "Century Gothic";
+    font-size: 18px;
+    margin-bottom: 20px;
     transition: .5s;
-}
-input:focus ~ label,
-input:valid ~ label{
-top: -5px;
-}
-.inputbox input {
-    width: 100%;
-    height: 50px;
-    background: transparent;
+  }
+  .logbox{
+    color: #ffffff;
+    font-family: "Century Gothic";
+    text-align: left;
+    font-weight: 1em;
+  }
+  .logpad button{
+    color: #181818;
+    background-color: #1ceeb6;
+    font-size: 21px;
+    font-family: Lithos Pro;
+    cursor: pointer;
     border: none;
     outline: none;
-    font-size: 1em;
-    padding:0 35px 0 5px;
-    color: #fff;
+    padding: 10px;
+    width: 100%;
+    margin: 20px 0;
+    transition: .3s;
+    border-radius: 3px 20px;
+  }
+  .logpad button:hover{
+    background-color: #14c797;
+
+  }
+  .logpad input:focus{
+    background: none;
+    border-bottom: 2px solid #1ceeb6;
+  }
+  
+.social-login {	
+	position: absolute;
+	height: 100px;
+	width: 160px;
+	text-align: center;
+	bottom: 0px;
+	right: 0px;
+	color: #fff;
 }
-.inputbox ion-icon{
-    position: absolute;
-    right: 8px;
-    color: #fff;
-    font-size: 1.2em;
-    top: 20px;
+.social-login h3{
+  font-family: Valeyola;
 }
-.forget{
-    margin: -15px 0 15px ;
-    font-size: .9em;
-    color: #fff;
-    display: flex;
-    justify-content: space-between;  
+.social-icons {
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
-.forget label input{
-    margin-right: 3px;
-    
+.social-login__icon {
+	padding: 19px 12px;
+  padding-top: 8px;
+	color: #1ceeb6;
+	text-decoration: none;
+  font-size: 1.3em;	
+	text-shadow: 0px 0px 8px #fff;
 }
-.forget label a{
-    color: #fff;
-    text-decoration: none;
+
+.social-login__icon:hover {
+	transform: scale(1.5);	
 }
-.forget label a:hover{
-    text-decoration: underline;
-}
-button{
-    width: 100%;
-    height: 40px;
-    border-radius: 40px;
-    background: #fff;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    font-size: 1em;
-    font-weight: 600;
-}
-.register{
-    font-size: .9em;
-    color: #fff;
-    text-align: center;
-    margin: 25px 0 10px;
-}
-.register p a{
-    text-decoration: none;
-    color: #fff;
-    font-weight: 600;
-}
-.register p a:hover{
-    text-decoration: underline;
-}
-  </style>
+  @media(max-width: 720px){
+    .logpad{
+      max-width: 240px;
+    }
+    body{
+      background-size: 300% 200%;
+      background-position: center;
+    }
+  }
+	</style>
 </head>
 <body>
-      <section>
-          <div class="form-box">
-              <div class="form-value">
-                  <form action="">
-                      <h2>Login</h2>
-                      <div class="inputbox">
-                          <ion-icon name="mail-outline"></ion-icon>
-                          <input type="email" required>
-                          <label for="">Email</label>
-                      </div>
-                      <div class="inputbox">
-                          <ion-icon name="lock-closed-outline"></ion-icon>
-                          <input type="password" required>
-                          <label for="">Password</label>
-                      </div>
-                      <div class="forget">
-                          <label for=""><input type="checkbox">Remember Me  <a href="#">Forget Password</a></label>
-                        
-                      </div>
-                      <button>Log in</button>
-                      <div class="register">
-                          <p>Don't have a account <a href="#">Register</a></p>
-                      </div>
-                  </form>
-              </div>
-          </div>
-      </section>
-      <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-      <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  <div class="logpad">
+    <div>
+      <span>Login</span>
+    </div>
+    <div class="logbox">
+      <label>Username</label>
+      <input type="text" name="username">
+      <label>Password</label>
+      <input type="password" name="password">
+    </div>
+    <button>Login</button>
+    <div class="social-login">
+      <h3>Log in via</h3>
+      <div class="social-icons">
+        <a href="#" class="social-login__icon fab fa-instagram"></a>
+        <a href="#" class="social-login__icon fab fa-facebook"></a>
+        <a href="#" class="social-login__icon fab fa-twitter"></a>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
