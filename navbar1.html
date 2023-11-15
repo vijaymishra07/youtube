@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      body{
+    margin: 0;
+    padding: 0;
+    background: black;
+  }
+  #menu{
+    margin: 0;
+    padding: 0;
+    margin-top: 100px;
+    text-align: center;
+    padding-top: 15%;
+  }
+  #menu li{
+    list-style: none;
+    display: inline-block;
+  }
+  #menu li a{
+    text-decoration: none;
+    position: relative;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 700;
+    font-family: sans-serif;
+    display: block;
+    overflow: hidden;
+    transition: 0.7s all;
+    padding: 14px 0px;
+    margin: 0px 30px;
+    text-transform: uppercase;
+  }
+  #menu li #first{
+    color: rgb(0, 255, 251);
+  }
+  #menu li a:before{
+    content: '';
+    width: 20px;
+    position: absolute;
+    border-bottom: 8px solid rgb(255, 0, 119);
+    bottom: 0;
+    right: 350px;
+    transition: 0.7s all;
+  }
+  #menu li a:hover:before{
+    right: 0;
+  }
+  
+    </style>
+</head>
+<body>
+ <ul id="menu">
+  <ul>
+    <li><a href="#" id="first">Home</a></li>
+    <li><a href="#">About</a></li>
+    <li><a href="#">Contact</a></li>
+    <li><a href="#">Buy</a></li>
+  </ul>
+ </ul>
+</body>
+</html>
