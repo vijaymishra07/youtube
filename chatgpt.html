@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <!-- Include jQuery -->
+    li
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <!-- Include jQuery Validation Plugin -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.20.0/jquery.validate.min.js" integrity="sha512-WMEKGZ7L5LWgaPeJtw9MBM4i5w5OSBlSjTjCtSnvFJGSVD26gE5+Td12qN5pvWXhuWaWcVwF++F7aqu9cvqP0A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <style>
+ 
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; /* Set min-height to cover the entire viewport */
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input {
+            width: calc(100% - 16px);
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+        }
+
+        input.error {
+            border-color: red;
+        }
+
+        input.red-placeholder::placeholder {
+            color: red; /* Set the placeholder text color to red */
+        }
+
+        button {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .error {
+            color: red;
+            margin-top: 5px;
+        }
+
+        .form-row {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .form-row input {
+            width: 48%; /* Adjust the width as needed */
+        }
+    </style>
+</head>
+<body>
+    <form id="registrationForm">
+        <h2>Register</h2>
+
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" placeholder="Spaces in the middle of the username are not allowed." required>
+
+        <label for="mobile">Mobile Number:</label>
+        <input type="tel" id="mobile" name="mobile" placeholder="Enter your mobile number" required pattern="[0-9]+" title="Please enter only numbers">
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" placeholder="Enter your valid email." required>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" placeholder="Your password must be at least 6 characters long." required>
+
+        <label for="confirmPassword">Confirm Password:</label>
+        <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm your password" required>
+
+        <button type="button" onclick="validateAndSubmit()">Submit</button>
+    </form>
+
+  <script>
+    $(document).ready(function () {
+        // Add a custom method for no spaces in the middle of the username
+        $.validator.addMethod("noSpaceInMiddle", function(value, element) {
+            return /^[^\s]+(\s*[^\s]+)*$/.test(value);
+        }, "Spaces in the middle of the username are not allowed.");
+
+        // Add a custom method for Indian mobile number format
+        $.validator.addMethod("indianMobile", function(value, element) {
+            return /^[789]\d{9}$/.test(value);
+        }, "Please enter a valid Indian mobile number.");
+
+        // Initialize form validation on the registration form
+        $("#registrationForm").validate({
+            rules: {
+                name: "required",
+                username: {
+                    required: true,
+                    noSpaceInMiddle: true
+                },
+                mobile: {
+                    required: true,
+                    indianMobile: true
+                },
+                email: {
+                    required: true,
+                    email: true
+                },
+                password: {
+                    required: true,
+                    minlength: 6
+                },
+                confirmPassword: {
+                    required: true,
+                    equalTo: "#password"
+                },
+            },
+            messages: {
+                name: "Please enter your name",
+                username: {
+                    required: "Please enter your username",
+                    noSpaceInMiddle: "Spaces in the middle of the username are not allowed."
+                },
+                mobile: {
+                    required: "Please enter your mobile number",
+                    indianMobile: "Please enter a valid Indian mobile number"
+                },
+                email: "Please enter a valid email address",
+                password: {
+                    required: "Your password must be at least 6 characters long",
+                    minlength: "Your password must be at least 6 characters long"
+                },
+                confirmPassword: {
+                    required: "Password do not match",
+                    equalTo: "Passwords do not match"
+                },
+            },
+            errorPlacement: function(error, element) {
+                // Set the error message in the placeholder
+                $(element).attr("placeholder", error.text());
+            },
+            highlight: function(element) {
+                $(element).addClass("error");
+                $(element).addClass("red-placeholder");
+            },
+            unhighlight: function(element) {
+                $(element).removeClass("error");
+                $(element).removeClass("red-placeholder");
+            }
+        });
+    });
+
+    function validateAndSubmit() {
+        if ($("#registrationForm").valid()) {
+            var mobileValue = $("#mobile").val();
+            if (!/^[0-9]+$/.test(mobileValue)) {
+                alert("Mobile number should contain only numbers.");
+            } else {
+                alert("Form submitted successfully!");
+            }
+        }
+    }
+</script>
+
+</body>
+</html>
+
